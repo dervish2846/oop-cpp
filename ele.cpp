@@ -10,13 +10,26 @@ class bill
     public:
     int unit;    
     int amt;
-
+    char name[20];
 
     bill(){unit = 0; amt=0;} 
 
+
+    void getDetails(int i)
+        {
+            
+            cout<<"\n\tEnter details \n\t ";
+            
+            cout<<"\tname : ";
+            cin>>name;
+            cout<<"\n\n\tEnter no of units  : ";
+            cin>>unit;
+            
+
+        }
  
  
-    void cal_bill(){
+    void cal_bill(int i){
      if(unit <= 100)
         amt=unit*0.60;
     else if(unit >100 && unit <301)
@@ -35,20 +48,29 @@ class bill
 
 
 
-    void print() { cout <<unit << " units    Rs." <<amt<< endl; } 
+    void print(int k) { cout<<name<<"   ";
+     cout<<unit << " units    Rs." <<amt<< endl; } 
 };
 
 int main()
 {
-   bill b;
+   bill b[10];
 
-   
-        int u;
-        cout<<"\n\n\tEnter no of units choice : ";
-        cin>>u;
-         b.unit=u;
-         b.cal_bill();
-         b.print();
+        cout<<"enter no of details";
+        int n1;
+        cin>>n1;
 
+    for (int i = 0; i < n1; ++i)
+    {
+       b[i].getDetails(i);
+    }
+         
+for (int j = 0; j < n1; ++j)
+{
+    b[j].cal_bill(j);
+         b[j].print(j);
+
+}
+         
 
 }
